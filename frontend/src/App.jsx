@@ -105,15 +105,18 @@ function App() {
   const pendingCount = tasks.length - completedCount;
 
   return (
-    <div className="h-screen w-full bg-slate-50/50 flex justify-center overflow-hidden antialiased selection:bg-indigo-500 selection:text-white relative">
+    // FIXED: Changed h-screen to min-h-screen md:h-screen and enabled mobile scroll
+    <div className="min-h-screen md:h-screen w-full bg-slate-50/50 flex justify-center overflow-x-hidden md:overflow-hidden antialiased selection:bg-indigo-500 selection:text-white relative">
       
       {/* Toast Notification Container */}
       <Toaster position="bottom-right" reverseOrder={false} />
 
-      <div className="w-full max-w-7xl h-full flex flex-col md:flex-row gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 overflow-hidden">
+      {/* FIXED: Replaced overflow-hidden with md:overflow-hidden */}
+      <div className="w-full max-w-7xl h-full flex flex-col md:flex-row gap-6 lg:gap-8 p-4 sm:p-6 lg:p-8 md:overflow-hidden">
         
         {/* LEFT COLUMN: Static Controls */}
-        <div className="w-full md:w-96 lg:w-5/12 flex flex-col shrink-0 h-full overflow-y-auto pr-2 pb-6 md:pb-0">
+        {/* FIXED: Added md: prefixes to h-full and overflow-y-auto */}
+        <div className="w-full md:w-96 lg:w-5/12 flex flex-col shrink-0 md:h-full md:overflow-y-auto pr-2 pb-6 md:pb-0">
           
           <div className="text-left mb-6 mt-2">
             <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-indigo-100 text-indigo-700 mb-3 tracking-widest uppercase">
@@ -148,7 +151,8 @@ function App() {
         </div>
 
         {/* RIGHT COLUMN: The Scrollable Task Feed */}
-        <div className="flex-1 flex flex-col bg-white rounded-3xl shadow-sm border border-slate-200/60 overflow-hidden h-full relative">
+        {/* FIXED: Added min-h-[600px] md:h-full and md:overflow-hidden to allow bottom scrolling */}
+        <div className="flex-1 flex flex-col bg-white rounded-3xl shadow-sm border border-slate-200/60 md:overflow-hidden min-h-[600px] md:h-full relative">
           
           {/* List Header & Controls */}
           <div className="px-6 pt-5 pb-4 border-b border-slate-100 bg-white z-10 shrink-0 shadow-sm">
