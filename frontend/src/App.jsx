@@ -4,7 +4,7 @@ import { Toaster, toast } from 'react-hot-toast'; // NEW: Toast notifications
 import TaskForm from './components/TaskForm';
 import TaskItem from './components/TaskItem';
 
-const API_BASE_URL = 'http://localhost:5000/api/tasks';
+const API_BASE_URL = 'https://taskmaster-api-yr90.onrender.com/api/tasks';
 
 function App() {
   const [tasks, setTasks] = useState([]);
